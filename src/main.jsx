@@ -8,6 +8,7 @@ import axios from "axios";
 import { Toaster } from "react-hot-toast";
 
 axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.withCredentials = true;
 
 // Render the application
 ReactDOM.createRoot(document.getElementById("root")).render(
