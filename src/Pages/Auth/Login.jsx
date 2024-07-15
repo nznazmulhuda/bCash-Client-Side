@@ -3,9 +3,12 @@ import Title from "../../Components/Shared/Title";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 function Login() {
     const navigate = useNavigate();
+    const { setUser } = useContext(AuthContext);
     const {
         register,
         handleSubmit,
@@ -23,6 +26,7 @@ function Login() {
                     toast.error("Your account is Block!");
                 } else if (res.data.accountActive) {
                     toast.success("Login successful!");
+                    setUser(res.data);
                     navigate("/");
                 }
             })

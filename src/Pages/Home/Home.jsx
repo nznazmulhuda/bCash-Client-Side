@@ -1,9 +1,14 @@
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Header from "../../Components/Shared/Header";
+
 function Home() {
+    const { user } = useContext(AuthContext);
+
     return (
         <>
-            <div>
-                <h1>Home</h1>
-            </div>
+            <Header />
+            
         </>
     );
 }
