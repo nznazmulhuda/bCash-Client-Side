@@ -29,38 +29,40 @@ const Routes = createBrowserRouter([
                         <Home />
                     </IsLogin>
                 ),
-            },
-            {
-                path: "/cashIn",
-                element: (
-                    <IsLogin>
-                        <CashIn />
-                    </IsLogin>
-                ),
-            },
-            {
-                path: "/cashOut",
-                element: (
-                    <IsLogin>
-                        <CashOut />
-                    </IsLogin>
-                ),
-            },
-            {
-                path: "/history",
-                element: (
-                    <IsLogin>
-                        <History />
-                    </IsLogin>
-                ),
-            },
-            {
-                path: "/sendMoney",
-                element: (
-                    <IsLogin>
-                        <SendMoney />
-                    </IsLogin>
-                ),
+                children: [
+                    {
+                        path: "/cashIn",
+                        element: (
+                            <IsLogin>
+                                <CashIn />
+                            </IsLogin>
+                        ),
+                    },
+                    {
+                        path: "/cashOut",
+                        element: (
+                            <IsLogin>
+                                <CashOut />
+                            </IsLogin>
+                        ),
+                    },
+                    {
+                        path: "/history",
+                        element: (
+                            <IsLogin>
+                                <History />
+                            </IsLogin>
+                        ),
+                    },
+                    {
+                        path: "/sendMoney",
+                        element: (
+                            <IsLogin>
+                                <SendMoney />
+                            </IsLogin>
+                        ),
+                    },
+                ],
             },
             {
                 path: "/agentHistory",
