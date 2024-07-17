@@ -5,7 +5,6 @@ import { Link, Outlet } from "react-router-dom";
 
 function Home() {
     const { user } = useContext(AuthContext);
-    console.log(user);
     return (
         <>
             <Header />
