@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 function SendMoney() {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -23,9 +25,7 @@ function SendMoney() {
             data.senderMail = user.email;
             data.senderNumber = user.number;
             data.senderRole = user.role;
-            data.date = date.toLocaleDateString();
-            data.time = date.toLocaleTimeString();
-            data.status = "pending";
+            data.dateTime = date.toLocaleString();
 
             // when amount is gether than or equal 100 then add 5 tk.
             if (data.amount >= 100) {
@@ -39,15 +39,15 @@ function SendMoney() {
                     .post("/pinValidate", data)
                     .then((res) => {
                         if (res.data.success) {
+                            delete data.pin;
                             // when the pin is validate.
                             axios
                                 .post("/sendMoney", data)
                                 .then((res) => {
                                     if (res.data.insertedId) {
                                         // when the money transfered success
-                                        toast.success(
-                                            "Success! Wait for confirm.",
-                                        );
+                                        toast.success("Success!");
+                                        navigate("/history");
                                         reset();
                                     } else {
                                         toast.error(

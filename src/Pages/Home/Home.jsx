@@ -14,19 +14,11 @@ function Home() {
                 <p className="text-xl md:text-2xl">{user.totalMoney}</p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 container mx-auto mt-5 lg:mt-10 gap-2 lg:gap-10 mb-4 md:mb-8">
+            <div className="grid grid-cols-2 lg:grid-cols-3 container mx-auto mt-5 lg:mt-10 gap-2 lg:gap-10 mb-4 md:mb-8">
                 <Link to={"/sendMoney"}>
                     <div className="bg-[#424242] text-white font-bold flex items-center justify-center flex-col gap-2 py-4 rounded-md">
                         <h1 className="text-xs md:text-sm lg:text-lg">
                             Send Money
-                        </h1>
-                    </div>
-                </Link>
-
-                <Link to={"/cashIn"}>
-                    <div className="bg-[#424242] text-white font-bold flex items-center justify-center flex-col gap-2 py-4 rounded-md">
-                        <h1 className="text-xs md:text-sm lg:text-lg">
-                            Cash In
                         </h1>
                     </div>
                 </Link>

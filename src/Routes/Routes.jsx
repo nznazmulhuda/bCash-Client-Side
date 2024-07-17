@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import IsLogin from "./IsLogin";
 import {
-    CashIn,
     CashOut,
     History,
     Home,
@@ -30,14 +29,6 @@ const Routes = createBrowserRouter([
                     </IsLogin>
                 ),
                 children: [
-                    {
-                        path: "/cashIn",
-                        element: (
-                            <IsLogin>
-                                <CashIn />
-                            </IsLogin>
-                        ),
-                    },
                     {
                         path: "/cashOut",
                         element: (
